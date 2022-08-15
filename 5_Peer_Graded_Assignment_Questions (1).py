@@ -78,7 +78,7 @@ app.layout = html.Div(children=[
                                 style={'textAlign': 'center', 
                                 'color': '#503D36', 
                                 'font-size': 24}),
-])
+
 
                                 # REVIEW2: Dropdown creation
                                 # Create an outer division 
@@ -136,7 +136,7 @@ html.Div([
 html.Div([
                                         html.Div([ ], id='plot4'),
                                         html.Div([ ], id='plot5')
-                                ], style={'display': 'flex'})
+                                ], style={'display': 'flex'}),  ])
 
 # Callback function definition
 # TASK4: Add 5 ouput components
@@ -146,6 +146,8 @@ html.Div([
                 Output(component_id='plot3', component_property='children'),
                 Output(component_id='plot4', component_property='children'),
                 Output(component_id='plot5', component_property='children')],
+              [Input(component_id='input-type', component_property='value'),
+               Input(component_id='input-year', component_property='value')],  
 
                # REVIEW4: Holding output state till user enters all the form information. In this case, it will be chart type and year
                [State("plot1", 'children'), State("plot2", "children"),
